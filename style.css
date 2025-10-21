@@ -1,0 +1,204 @@
+:root {
+  --coral: #ff9994;
+  --success: #28a745;
+  --warning: #fd7e14;
+  --danger: #ff7f50;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background: var(--coral);
+  position: relative;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--coral);
+  width: 100%;
+  z-index: 1;
+}
+
+.logo-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.logo-container .logo-img {
+  height: 30px;
+  width: auto;
+}
+
+/* Action buttons */
+.action-btn {
+  background: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.action-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Status indicators */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.status-disponible {
+  background-color: var(--success);
+}
+
+.status-indisponible {
+  background-color: var(--danger);
+}
+
+.status-retard {
+  background-color: var(--warning);
+}
+
+/* List items */
+.item-icon {
+  font-size: 1.25rem;
+  margin-right: 10px;
+  color: var(--bs-gray-600);
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+}
+
+.divider {
+  border: 0;
+  height: 4px;
+  background-color: #ff9994;
+  opacity: 1;
+  width: 100vw;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .divider {
+    height: 6px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+}
+
+.section-title {
+  font-size: 1rem;
+  color: var(--bs-gray-700);
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobile-first toolbar */
+.toolbar .form-select {
+  min-width: auto;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .toolbar .form-select {
+    min-width: 140px;
+  }
+}
+
+/* Mobile-optimized list items */
+.list-group-item:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.list-group-item .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .list-group-item .left {
+    gap: 12px;
+  }
+}
+
+.item-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+@media (min-width: 768px) {
+  .item-icon i {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.item-meta {
+  color: #333;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6c757d;
+}
+
+/* Style du bouton Ajouter */
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #ff9994 !important;
+  border-color: #ff9994 !important;
+  box-shadow: none !important;
+}
+
+.trash-btn {
+  color: #6c757d;
+  background: transparent;
+  border: none;
+}
+
+footer {
+  background: var(--coral);
+  padding: 14px 0;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.65);
+}
