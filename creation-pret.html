@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Création de prêt - MediaStock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="page-header">
+      <div class="bar"></div>
+      <div class="logo-container">
+        <img src="logo.png" alt="MediaStock" class="logo-img logo-small" />
+      </div>
+    </header>
+
+    <main class="page-body">
+      <div class="text-center text-muted mb-2" id="itemName">
+        Nom de l'élément
+      </div>
+
+      <div id="productVisual" class="text-center mb-3">
+        <!-- si image fournie, sera injectée; sinon icône FontAwesome -->
+        <div id="productImageWrap">
+          <i
+            id="productIcon"
+            class="fas fa-mouse fa-5x"
+            style="color: #333"
+          ></i>
+        </div>
+      </div>
+
+      <form id="loanForm" class="needs-validation" novalidate>
+        <div class="mb-2">
+          <label class="form-label">Nom de l'intervenant :</label>
+          <input
+            type="text"
+            id="intervenant"
+            class="form-control"
+            placeholder="nom"
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label"
+            >Nom de l'emprunteur : <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="emprunteurNom"
+            class="form-control"
+            placeholder="nom"
+            required
+          />
+          <div class="invalid-feedback">Le nom de l'emprunteur est requis</div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label"
+            >Prénom de l'emprunteur : <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="emprunteurPrenom"
+            class="form-control"
+            placeholder="prénom"
+            required
+          />
+          <div class="invalid-feedback">
+            Le prénom de l'emprunteur est requis
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label"
+            >Classe : <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="classe"
+            class="form-control"
+            placeholder="classe"
+            required
+          />
+          <div class="invalid-feedback">La classe est requise</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label d-block"
+            >État : <span class="text-danger">*</span></label
+          >
+          <div class="btn-group" role="group" aria-label="État">
+            <input
+              type="radio"
+              class="btn-check"
+              name="etat"
+              id="etatBon"
+              value="Bon"
+              autocomplete="off"
+              checked
+              required
+            />
+            <label class="btn btn-outline-success state-btn" for="etatBon"
+              >Bon</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="etat"
+              id="etatMoyen"
+              value="Moyen"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-warning state-btn" for="etatMoyen"
+              >Moyen</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="etat"
+              id="etatMauvais"
+              value="Mauvais"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-danger state-btn" for="etatMauvais"
+              >Mauvais</label
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Notes :</label>
+          <textarea
+            id="notes"
+            class="form-control notes-box"
+            maxlength="500"
+            placeholder="notes"
+          ></textarea>
+          <div class="form-text text-end" id="notesCount">0 / 500</div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label"
+            >Période de prêt : <span class="text-danger">*</span></label
+          >
+          <div class="calendar-visual-wrap">
+            <div class="calendar-container"></div>
+            <input
+              id="datePicker"
+              class="form-control date-input-below"
+              type="text"
+              placeholder="Sélectionner la période"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">
+            Les dates de prêt et retour sont requises
+          </div>
+        </div>
+
+        <div class="d-grid mt-3">
+          <button id="submitBtn" class="btn btn-primary validate-btn">
+            Valider
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="text-center text-muted py-3 border-top mt-auto">
+      <p>Mentions légales</p>
+      <p>© 2025 MediaStock inc.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script></script>
+    <script src="script.js"></script>
+  </body>
+</html>
