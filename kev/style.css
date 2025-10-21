@@ -5,6 +5,7 @@
   --danger: #ff7f50;
 }
 
+/* ************************  page principale ************************* */
 /* Header */
 .page-header {
   display: flex;
@@ -57,6 +58,47 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Calendrier styles */
+.calendar-container .flatpickr-calendar {
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+
+.calendar-container .flatpickr-calendar.open {
+  display: inline-block !important;
+}
+
+.calendar-container .flatpickr-day.selected {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+
+.calendar-container .flatpickr-day.inRange {
+  background: #ffe5e3;
+  border-color: #ffe5e3;
+}
+
+.calendar-container .flatpickr-day:hover {
+  background: #fff0ef;
+}
+
+/* wrapper to show the calendar above the input while keeping input in DOM */
+.calendar-visual-wrap {
+  display: flex;
+  flex-direction: column; /* calendar DOM first, input DOM second -> calendar shown above input */
+  gap: 0.5rem;
+}
+.calendar-visual-wrap .calendar-container {
+  width: 100%;
+}
+.date-input-below {
+  order: 2;
+}
+
 /* Status indicators */
 .status-dot {
   width: 10px;
@@ -75,7 +117,7 @@
 }
 
 .status-retard {
-  background-color: var(--warning);
+  background-color: #dc3545;
 }
 
 /* List items */
@@ -202,3 +244,34 @@ footer p {
   margin: 0;
   color: rgba(0, 0, 0, 0.65);
 }
+
+/* ************************   fin page principale ************************* */
+
+/* ************************  page de création de prêt ************************* */
+.page-body {
+  max-width: 420px;
+  margin: 18px auto 48px;
+}
+.product-image {
+  display: block;
+  margin: 12px auto;
+  width: 220px;
+  height: 150px;
+  object-fit: contain;
+}
+.state-btn {
+  min-width: 90px;
+}
+.validate-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+.notes-box {
+  min-height: 120px;
+}
+.logo-small {
+  height: 36px;
+}
+
+/* ************************   fin page de création de prêt ************************* */
