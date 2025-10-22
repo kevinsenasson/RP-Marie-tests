@@ -33,6 +33,33 @@ select#classe option {
   padding: 10px 12px;
   min-height: 40px;
 }
+/* ************************  page se connecter ************************* */
+.equipment-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.equipment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  border-color: #ff9994 !important;
+}
+
+.equipment-card:hover .fas {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.equipment-card:hover .card-title {
+  color: #ff9994 !important;
+  transition: color 0.3s ease;
+}
+
+.equipment-card:hover .display-4 {
+  color: #ff9994 !important;
+  transition: color 0.3s ease;
+}
+/* ************************  fin de page se connecter ************************* */
 
 /* ************************  page principale ************************* */
 /* Header */
