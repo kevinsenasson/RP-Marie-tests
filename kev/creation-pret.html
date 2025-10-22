@@ -87,13 +87,26 @@
           <label class="form-label"
             >Classe : <span class="text-danger">*</span></label
           >
-          <input
-            type="text"
-            id="classe"
-            class="form-control"
-            placeholder="classe"
-            required
-          />
+          <select id="classe" class="form-select" required>
+            <option value="" selected disabled>Sélectionner une classe</option>
+            <option value="INTERVENANT">INTERVENANT</option>
+            <option value="ECS1">ECS1</option>
+            <option value="ECS2">ECS2</option>
+            <option value="ECS3 A">ECS3 A</option>
+            <option value="ECS3 B">ECS3 B</option>
+            <option value="ECS4 A">ECS4 A</option>
+            <option value="ECS4 B">ECS4 B</option>
+            <option value="ECS4 DA">ECS4 DA</option>
+            <option value="ECS5 COM DIGIT">ECS5 COM DIGIT</option>
+            <option value="ECS5 COM EVENT">ECS5 COM EVENT</option>
+            <option value="NSS1">NSS1</option>
+            <option value="NSS2">NSS2</option>
+            <option value="PSL1">PSL1</option>
+            <option value="PSL2">PSL2</option>
+            <option value="PSL3">PSL3</option>
+            <option value="IRIS1">IRIS1</option>
+            <option value="IRIS2">IRIS2</option>
+          </select>
           <div class="invalid-feedback">La classe est requise</div>
         </div>
 
@@ -185,10 +198,34 @@
       <p>© 2025 MediaStock inc.</p>
     </footer>
 
+    <!-- Modal de félicitation -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <div class="modal-body">
+            <div class="success-icon mb-3">
+              <i class="fas fa-check"></i>
+            </div>
+            <h4 class="mb-3">Félicitation votre prêt a été effectuer</h4>
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              validé
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script></script>
+    <script>
+      // Configuration de la langue française pour Flatpickr
+      flatpickr.localize(flatpickr.l10ns.fr);
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

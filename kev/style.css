@@ -5,6 +5,35 @@
   --danger: #ff7f50;
 }
 
+/* Modal de succès */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon i {
+  font-size: 40px;
+  color: white;
+}
+
+/* Menu déroulant avec scroll limité à 4 options visibles */
+select#classe {
+  /* Limite la hauteur pour afficher environ 4 options lors de l'ouverture */
+  max-height: 200px;
+}
+
+/* Style pour les options du menu */
+select#classe option {
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
 /* ************************  page principale ************************* */
 /* Header */
 .page-header {
@@ -275,3 +304,7 @@ footer p {
 }
 
 /* ************************   fin page de création de prêt ************************* */
+
+/* ************************   page de restitution ************************* */
+
+/* ************************   fin page de restitution ************************* */
