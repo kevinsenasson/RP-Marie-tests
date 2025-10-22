@@ -141,8 +141,13 @@ window.onload = function(){
         }
 
         // Vérifier la sélection des dates
-        const dates = document.getElementById("datePicker").value.split(" to ");
+        const dateValue = document.getElementById("datePicker").value;
+        // Accepter les deux formats : " to " (anglais) et " au " (français)
+        let dates = dateValue.split(" au ");
         if (dates.length !== 2) {
+          dates = dateValue.split(" to ");
+        }
+        if (dates.length !== 2 || !dates[0] || !dates[1]) {
           alert("Veuillez sélectionner une date de prêt ET une date de retour");
           return;
         }
@@ -156,8 +161,8 @@ window.onload = function(){
             classe: document.getElementById("classe").value.trim(),
             etat: document.querySelector('input[name="etat"]:checked').value,
             notes: document.getElementById("notes").value.trim(),
-            datePret: dates[0],
-            dateRetour: dates[1],
+            datePret: dates[0].trim(),
+            dateRetour: dates[1].trim(),
           };
 
           if (!payload.nom || !payload.prenom || !payload.classe) {
@@ -165,10 +170,15 @@ window.onload = function(){
             return;
           }
 
-          // pour l'instant on log et redirige vers index
+          // Afficher la modale de succès
           console.log("Prêt créé", payload);
-          alert("Prêt enregistré pour : " + payload.item);
-          window.location.href = "index.html";
+          const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+          successModal.show();
+          
+          // Rediriger après la fermeture de la modale
+          document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
+            window.location.href = "index.html";
+          }, { once: true });
         } catch (err) {
           alert("Erreur: " + err.message);
         }
@@ -186,6 +196,21 @@ window.onload = function(){
           notesCount.textContent = `${notes.value.length} / 500`;
         }
 
+        // Limiter le menu déroulant des classes à 4 options visibles
+        const classeSelect = document.getElementById("classe");
+        if (classeSelect) {
+          classeSelect.addEventListener("mousedown", function() {
+            this.size = 4;
+          });
+          classeSelect.addEventListener("blur", function() {
+            this.size = 1;
+          });
+          classeSelect.addEventListener("change", function() {
+            this.size = 1;
+            this.blur();
+          });
+        }
+
         // Initialisation du calendrier : attacher le calendrier dans .calendar-container
         try {
           const dp = document.getElementById('datePicker');
@@ -198,6 +223,11 @@ window.onload = function(){
               altInput: true,
               altFormat: 'j F Y',
               dateFormat: 'Y-m-d',
+              locale: 'fr',
+              minDate: 'today',
+              disableMobile: true,
+              conjunction: ' au ',
+              rangeSeparator: ' au ',
               minDate: 'today',
               locale: 'fr',
               defaultHour: 12
@@ -208,3 +238,8 @@ window.onload = function(){
         }
       });
 // ****************************************************** fin js page création de prêt **************************************************************
+
+// ******************************************************  js page de restitution *****************************************************************
+
+
+// ****************************************************** fin js page de restitution **************************************************************
