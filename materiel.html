@@ -42,31 +42,42 @@
     </div>
 
     <!-- Champ nom (centré, responsive) -->
-    <form class="mb-3">
+    <form class="mb-3" id="materielForm">
       <div class="d-flex justify-content-center">
-        <input type="text" class="form-control text-center" placeholder="Veuillez saisir le nom de du matériel" style="max-width:420px;">
+        <input type="text" id="materielNom" class="form-control text-center" placeholder="Veuillez saisir le nom de du matériel" style="max-width:420px;" required>
       </div>
     </form>
 
     <!-- Bouton générer -->
     <div class="mb-3">
-      <button type="button" class="btn" style="background:#FF9994; color:#111; border-radius:10px; padding:10px 20px;">
+      <button type="button" id="btnAjouterBD" class="btn" style="background:#FF9994; color:#111; border-radius:10px; padding:10px 20px;">
          Ajouter à la Base De Données
       </button>
     </div>
 
+    <!-- Message de succès -->
+    <div id="messageSucces" class="alert alert-success d-none mb-3" role="alert">
+      <i class="fas fa-check-circle me-2"></i>
+      <span id="messageTexte"></span>
+    </div>
+
     <!-- QR code -->
-    <div class="mb-3">
-      <img src="qrcode.png" alt="QR code" class="img-fluid mx-auto d-block shadow-sm bg-white p-3 rounded" style="max-width:320px;">
+    <div class="mb-3" id="qrcodeContainer">
+      <div id="qrcodeDisplay" class="d-flex justify-content-center">
+        <div class="text-muted">Le QR code apparaîtra ici après l'ajout</div>
+      </div>
     </div>
 
     <!-- Actions -->
-    <div class="d-flex justify-content-center gap-3">
-      <button class="btn d-flex align-items-center gap-2" style="background:#FF9994; color:#111; border-radius:8px; padding:8px 14px;">
+    <div class="d-flex justify-content-center gap-3" id="qrcodeActions" style="display:none !important;">
+      <button id="btnTelecharger" class="btn d-flex align-items-center gap-2" style="background:#FF9994; color:#111; border-radius:8px; padding:8px 14px;">
         <i class="fa fa-download"></i> Télécharger
       </button>
-      <button class="btn d-flex align-items-center justify-content-center" style="background:#FF9994; color:#111; border-radius:8px; width:44px; height:40px; padding:0;">
+      <button id="btnPartager" class="btn d-flex align-items-center justify-content-center" style="background:#FF9994; color:#111; border-radius:8px; width:44px; height:40px; padding:0;">
         <i class="fa fa-share"></i>
+      </button>
+      <button id="btnImprimer" class="btn d-flex align-items-center justify-content-center" style="background:#FF9994; color:#111; border-radius:8px; width:44px; height:40px; padding:0;">
+        <i class="fa fa-print"></i>
       </button>
     </div>
     <h6 class="mt-5" style="opacity: 0.69;" >Si Vous ne pouvez imprimer le QR code , vous pouvez le retrouve dans la fiche produit</h6>
@@ -81,7 +92,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
- <script src="/materiel.js"></script>
+  <!-- Bibliothèque QRCode.js pour générer les QR codes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="/materiel.js"></script>
 
 </body>
 </html>
