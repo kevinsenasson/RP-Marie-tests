@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Restitution de prêt - MediaStock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="page-header">
+      <div class="bar"></div>
+      <div class="logo-container">
+        <img src="logo.png" alt="MediaStock" class="logo-img logo-small" />
+      </div>
+    </header>
+
+    <main class="page-body">
+      <div class="text-center text-muted mb-2" id="itemNameReturn">
+        Nom de l'élément
+      </div>
+
+      <div id="productVisualReturn" class="text-center mb-3">
+        <div id="productImageWrapReturn">
+          <i
+            id="productIconReturn"
+            class="fas fa-mouse fa-5x"
+            style="color: #333"
+          ></i>
+        </div>
+      </div>
+
+      <form id="returnForm" class="needs-validation" novalidate>
+        <div class="mb-2">
+          <label class="form-label">Nom de l'intervenant :</label>
+          <input
+            type="text"
+            id="intervenantReturn"
+            class="form-control"
+            placeholder="nom"
+            readonly
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Nom de l'emprunteur :</label>
+          <input
+            type="text"
+            id="emprunteurNomReturn"
+            class="form-control"
+            placeholder="nom"
+            readonly
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Prénom de l'emprunteur :</label>
+          <input
+            type="text"
+            id="emprunteurPrenomReturn"
+            class="form-control"
+            placeholder="prénom"
+            readonly
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Classe :</label>
+          <input
+            type="text"
+            id="classeReturn"
+            class="form-control"
+            placeholder="classe"
+            readonly
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label d-block">État au moment du prêt :</label>
+          <div id="etatPretDisplay" class="etat-pret-display">
+            <span id="etatPretBadge" class="badge-etat">Bon</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label d-block"
+            >État à la restitution : <span class="text-danger">*</span></label
+          >
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="État à la restitution"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="etatReturn"
+              id="etatBonReturn"
+              value="Bon"
+              autocomplete="off"
+              required
+              checked
+            />
+            <label class="btn btn-outline-success state-btn" for="etatBonReturn"
+              >Bon</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="etatReturn"
+              id="etatMoyenReturn"
+              value="Moyen"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-warning state-btn"
+              for="etatMoyenReturn"
+              >Moyen</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="etatReturn"
+              id="etatMauvaisReturn"
+              value="Mauvais"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-danger state-btn"
+              for="etatMauvaisReturn"
+              >Mauvais</label
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Notes :</label>
+          <textarea
+            id="notesReturn"
+            class="form-control notes-box"
+            maxlength="500"
+            placeholder="notes"
+            readonly
+          ></textarea>
+          <div class="form-text text-end" id="notesCountReturn">0 / 500</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Commentaire :</label>
+          <textarea
+            id="commentaireReturn"
+            class="form-control notes-box"
+            maxlength="500"
+            placeholder="Ajouter un commentaire de retour..."
+          ></textarea>
+          <div class="form-text text-end" id="commentaireCountReturn">
+            0 / 500
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Date de retour prévue :</label>
+          <div class="calendar-visual-wrap">
+            <div class="calendar-container-return"></div>
+            <input
+              id="datePickerReturn"
+              class="form-control date-input-below"
+              type="text"
+              placeholder="Date de retour"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="d-grid mt-3">
+          <button id="submitBtnReturn" class="btn btn-primary validate-btn">
+            Valider
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="text-center text-muted py-3 border-top mt-auto">
+      <p>Mentions légales</p>
+      <p>© 2025 MediaStock inc.</p>
+    </footer>
+
+    <!-- Modal de félicitation pour restitution -->
+    <div
+      class="modal fade"
+      id="successModalReturn"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <div class="modal-body">
+            <div class="success-icon mb-3">
+              <i class="fas fa-check"></i>
+            </div>
+            <h4 class="mb-3">Félicitation la restitution a été effectuée</h4>
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              validé
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Configuration de la langue française pour Flatpickr
+      flatpickr.localize(flatpickr.l10ns.fr);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

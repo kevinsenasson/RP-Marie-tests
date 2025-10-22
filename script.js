@@ -241,5 +241,149 @@ window.onload = function(){
 
 // ******************************************************  js page de restitution *****************************************************************
 
+// Données d'exemple pour simuler un prêt (dans une vraie application, elles viendraient d'une base de données ou de l'URL)
+const loanData = {
+  item: "souris logitek g 502",
+  intervenant: "GOJO",
+  nom: "Yeager",
+  prenom: "Eren",
+  classe: "BTS SIO 1",
+  etat: "Bon",
+  notes: "loger nunc suscipit sed hendrerit semper veli class aptent tachi socioas ad litora torquent per conubia incepti himenaeos orci netus magna tristique tacilisis viverra, a consectetur sapien fringilla malesuada porro scelerisque lorem mauris eros lobortis velit maeciti mattis scelerisque maximus eget fermentum odio placerat ultrices efficitur bacsed nulla eleifend.",
+  datePret: "2025-06-08",
+  dateRetour: "2025-06-22"
+};
+
+// Attendre que le DOM soit chargé avant d'initialiser
+window.addEventListener('DOMContentLoaded', function() {
+  // Pré-remplir les champs du formulaire de restitution
+  if (document.getElementById("returnForm")) {
+    const itemNameEl = document.getElementById("itemNameReturn");
+    if (itemNameEl) {
+    itemNameEl.textContent = loanData.item;
+  }
+
+  // Remplir les champs
+  const intervenantInput = document.getElementById("intervenantReturn");
+  if (intervenantInput) intervenantInput.value = loanData.intervenant;
+
+  const nomInput = document.getElementById("emprunteurNomReturn");
+  if (nomInput) nomInput.value = loanData.nom;
+
+  const prenomInput = document.getElementById("emprunteurPrenomReturn");
+  if (prenomInput) prenomInput.value = loanData.prenom;
+
+  const classeInput = document.getElementById("classeReturn");
+  if (classeInput) classeInput.value = loanData.classe;
+
+  // Afficher l'état du prêt avec un badge coloré
+  const etatPretBadge = document.getElementById("etatPretBadge");
+  if (etatPretBadge) {
+    etatPretBadge.textContent = loanData.etat;
+    etatPretBadge.className = "badge-etat " + loanData.etat.toLowerCase();
+  }
+
+  // Retirer tous les checked existants et pré-sélectionner le bon état
+  const tousLesBoutonsReturn = document.querySelectorAll('input[name="etatReturn"]');
+  tousLesBoutonsReturn.forEach(btn => {
+    btn.removeAttribute('checked');
+    btn.checked = false;
+  });
+  
+  // Sélectionner le bon état selon loanData
+  const etatRetourRadio = document.querySelector(`input[name="etatReturn"][value="${loanData.etat}"]`);
+  if (etatRetourRadio) {
+    etatRetourRadio.setAttribute('checked', 'checked');
+    etatRetourRadio.checked = true;
+    console.log("État de restitution pré-sélectionné:", loanData.etat);
+  }
+
+  // Remplir les notes
+  const notesTextarea = document.getElementById("notesReturn");
+  const notesCount = document.getElementById("notesCountReturn");
+  if (notesTextarea && notesCount) {
+    notesTextarea.value = loanData.notes;
+    notesCount.textContent = `${loanData.notes.length} / 500`;
+  }
+
+  // Compteur pour le commentaire de retour
+  const commentaireTextarea = document.getElementById("commentaireReturn");
+  const commentaireCount = document.getElementById("commentaireCountReturn");
+  if (commentaireTextarea && commentaireCount) {
+    commentaireTextarea.addEventListener("input", () => {
+      commentaireCount.textContent = `${commentaireTextarea.value.length} / 500`;
+    });
+  }
+
+  // Initialiser le calendrier avec la date de retour prévue
+  try {
+    const dpReturn = document.getElementById('datePickerReturn');
+    const calendarContainerReturn = document.querySelector('.calendar-container-return');
+    if (dpReturn && typeof flatpickr === 'function') {
+      flatpickr(dpReturn, {
+        inline: true,
+        appendTo: calendarContainerReturn || undefined,
+        altInput: true,
+        altFormat: 'j F Y',
+        dateFormat: 'Y-m-d',
+        locale: 'fr',
+        disableMobile: true,
+        defaultDate: loanData.dateRetour,
+        disable: [
+          function(date) {
+            // Désactiver toutes les dates sauf la date de retour prévue
+            return date.toISOString().split('T')[0] !== loanData.dateRetour;
+          }
+        ]
+      });
+    }
+  } catch (err) {
+    console.warn('flatpickr init failed for return page', err);
+  }
+
+  // Validation du formulaire de restitution
+  const formReturn = document.getElementById("returnForm");
+  if (formReturn) {
+    formReturn.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Vérifier si le formulaire est valide
+      if (!formReturn.checkValidity()) {
+        e.stopPropagation();
+        formReturn.classList.add("was-validated");
+        return;
+      }
+
+      try {
+        const payload = {
+          item: itemNameEl.textContent,
+          intervenant: document.getElementById("intervenantReturn").value,
+          nom: document.getElementById("emprunteurNomReturn").value,
+          prenom: document.getElementById("emprunteurPrenomReturn").value,
+          classe: document.getElementById("classeReturn").value,
+          etatInitial: loanData.etat,
+          etatRetour: document.querySelector('input[name="etatReturn"]:checked').value,
+          notesInitiales: document.getElementById("notesReturn").value,
+          commentaireRetour: document.getElementById("commentaireReturn").value.trim(),
+          dateRetourPrevue: loanData.dateRetour,
+          dateRetourEffective: new Date().toISOString().split('T')[0]
+        };
+
+        // Afficher la modale de succès
+        console.log("Restitution effectuée", payload);
+        const successModal = new bootstrap.Modal(document.getElementById('successModalReturn'));
+        successModal.show();
+        
+        // Rediriger après la fermeture de la modale
+        document.getElementById('successModalReturn').addEventListener('hidden.bs.modal', function () {
+          window.location.href = "index.html";
+        }, { once: true });
+      } catch (err) {
+        alert("Erreur: " + err.message);
+      }
+    });
+  }
+  }
+}); // Fin du DOMContentLoaded
 
 // ****************************************************** fin js page de restitution **************************************************************

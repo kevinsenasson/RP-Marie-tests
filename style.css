@@ -334,4 +334,85 @@ footer p {
 
 /* ************************   page de restitution ************************* */
 
+/* Les champs en lecture seule ont une apparence grisée */
+#returnForm input[readonly],
+#returnForm textarea[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Le calendrier de la page restitution est en lecture seule */
+.calendar-container-return .flatpickr-calendar {
+  pointer-events: none;
+}
+
+/* Style pour le champ commentaire de retour (éditable) */
+#commentaireReturn {
+  background-color: white;
+  cursor: text;
+}
+
+/* Affichage de l'état du prêt avec badge coloré */
+.etat-pret-display {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+}
+
+.badge-etat {
+  display: inline-block;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.badge-etat.bon {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge-etat.moyen {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.badge-etat.mauvais {
+  background-color: #ff7f50;
+  color: white;
+}
+
+/* Boutons d'état modifiables (état à la restitution) */ /* Afficher visuellement l'état sélectionné même s'il est désactivé */
+.etat-readonly
+  input[type="radio"]:checked:disabled
+  + label.btn-outline-success {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+  opacity: 0.7;
+}
+
+.etat-readonly
+  input[type="radio"]:checked:disabled
+  + label.btn-outline-warning {
+  background-color: #fd7e14;
+  color: white;
+  border-color: #fd7e14;
+  opacity: 0.7;
+}
+
+.etat-readonly input[type="radio"]:checked:disabled + label.btn-outline-danger {
+  background-color: #ff7f50;
+  color: white;
+  border-color: #ff7f50;
+  opacity: 0.7;
+}
+
+/* Boutons d'état modifiables (état à la restitution) */
+#returnForm .state-btn {
+  cursor: pointer;
+}
+
 /* ************************   fin page de restitution ************************* */
