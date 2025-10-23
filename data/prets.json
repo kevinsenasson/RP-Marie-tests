@@ -1,0 +1,31 @@
+
+{
+  "prets": [
+    {
+      "id": 1,
+      "materielId": 1,
+      "emprunteur": "Jean Dupont",
+      "datePret": "2025-10-01",
+      "dateRetour": "2025-10-15",
+      "etatPret": "Bon",
+      "etatRetour": "Bon",
+      "dateRestitution": "2025-10-14",
+      "intervenant": "GOJO",
+      "classe": "BTS SIO 1",
+      "notes": "Prêt pour projet personnel"
+    },
+    {
+      "id": 2,
+      "materielId": 1,
+      "emprunteur": "Marie Martin",
+      "datePret": "2025-10-20",
+      "dateRetour": "2025-11-03",
+      "etatPret": "Bon",
+      "etatRetour": null,
+      "dateRestitution": null,
+      "intervenant": "GOJO",
+      "classe": "BTS SIO 2",
+      "notes": "Prêt en cours"
+    }
+  ]
+}

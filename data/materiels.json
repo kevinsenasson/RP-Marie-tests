@@ -1,0 +1,112 @@
+{
+  "materiels": [
+    {
+      "id": 1,
+      "nom": "souris logitek g 502",
+      "status": "disponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "informatique",
+      "icone": "fa-mouse"
+    },
+    {
+      "id": 2,
+      "nom": "souris logitek g 502",
+      "status": "indisponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "informatique",
+      "icone": "fa-mouse"
+    },
+    {
+      "id": 3,
+      "nom": "clavier logitek",
+      "status": "disponible",
+      "etat": "Moyen",
+      "dateAjout": "03/11/25",
+      "categorie": "informatique",
+      "icone": "fa-keyboard"
+    },
+    {
+      "id": 4,
+      "nom": "clavier logitek",
+      "status": "retard",
+      "etat": "Mauvais",
+      "dateAjout": "03/11/25",
+      "categorie": "informatique",
+      "icone": "fa-keyboard"
+    },
+    {
+      "id": 5,
+      "nom": "micro cravatte",
+      "status": "disponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "audio",
+      "icone": "fa-microphone"
+    },
+    {
+      "id": 6,
+      "nom": "micro cravatte",
+      "status": "indisponible",
+      "etat": "Moyen",
+      "dateAjout": "03/11/25",
+      "categorie": "audio",
+      "icone": "fa-microphone"
+    },
+    {
+      "id": 7,
+      "nom": "micro cravatte",
+      "status": "indisponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "audio",
+      "icone": "fa-microphone"
+    },
+    {
+      "id": 8,
+      "nom": "cable hdmi",
+      "status": "disponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "connectiques",
+      "icone": "fa-plug"
+    },
+    {
+      "id": 9,
+      "nom": "cable hdmi",
+      "status": "retard",
+      "etat": "Moyen",
+      "dateAjout": "03/11/25",
+      "categorie": "connectiques",
+      "icone": "fa-plug"
+    },
+    {
+      "id": 10,
+      "nom": "adaptateur mac",
+      "status": "disponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "connectiques",
+      "icone": "fa-plug"
+    },
+    {
+      "id": 11,
+      "nom": "adaptateur mac",
+      "status": "indisponible",
+      "etat": "Mauvais",
+      "dateAjout": "03/11/25",
+      "categorie": "connectiques",
+      "icone": "fa-plug"
+    },
+    {
+      "id": 12,
+      "nom": "cable reseau",
+      "status": "disponible",
+      "etat": "Bon",
+      "dateAjout": "03/11/25",
+      "categorie": "connectiques",
+      "icone": "fa-network-wired"
+    }
+  ]
+}

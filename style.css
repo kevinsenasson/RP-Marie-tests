@@ -416,3 +416,210 @@ footer p {
 }
 
 /* ************************   fin page de restitution ************************* */
+
+/* ************************   Offcanvas Fiche Produit - Design Moderne ************************* */
+.offcanvas-fiche {
+  width: 420px !important;
+}
+
+.offcanvas-header-custom {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.btn-close-custom {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-close-custom:hover {
+  background: white;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-close-custom i {
+  color: #333;
+  font-size: 18px;
+}
+
+/* En-tête de la fiche */
+.fiche-header {
+  background: linear-gradient(135deg, #ff9994 0%, #ffb3af 100%);
+  padding: 60px 30px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(255, 153, 148, 0.2);
+}
+
+.fiche-icon-wrapper {
+  margin-bottom: 20px;
+}
+
+.fiche-icon-circle {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.fiche-icon-circle:hover {
+  transform: scale(1.05);
+}
+
+.fiche-icon-circle i {
+  color: #ff9994;
+}
+
+.fiche-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fiche-badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fiche-badges .badge {
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Corps de la fiche */
+.fiche-content {
+  padding: 25px 20px;
+  background: #f8f9fa;
+  min-height: calc(100vh - 280px);
+}
+
+.fiche-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.fiche-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.fiche-card-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 15px 20px;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #ff9994;
+  display: flex;
+  align-items: center;
+}
+
+.fiche-card-header i {
+  color: #ff9994;
+  font-size: 1.1rem;
+}
+
+.fiche-card-body {
+  padding: 25px 20px;
+}
+
+/* QR Code */
+.qr-container {
+  display: inline-block;
+  padding: 15px;
+  background: white;
+  border: 3px dashed #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.qr-container:hover {
+  border-color: #ff9994;
+  box-shadow: 0 4px 15px rgba(255, 153, 148, 0.2);
+}
+
+/* Historique moderne */
+#ficheHistorique .list-group {
+  border: none;
+}
+
+#ficheHistorique .list-group-item {
+  border: none;
+  border-left: 4px solid #ff9994;
+  margin-bottom: 15px;
+  border-radius: 8px !important;
+  background: #f8f9fa;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+#ficheHistorique .list-group-item:hover {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
+}
+
+#ficheHistorique .badge {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+#ficheHistorique .text-muted {
+  font-size: 0.85rem;
+}
+
+/* Message vide historique */
+#ficheHistorique .text-center.text-muted {
+  padding: 40px 20px;
+}
+
+#ficheHistorique .text-center.text-muted i {
+  color: #dee2e6;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .offcanvas-fiche {
+    width: 100% !important;
+  }
+
+  .fiche-header {
+    padding: 50px 20px 30px;
+  }
+
+  .fiche-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* ************************   Fin Offcanvas Fiche Produit ************************* */

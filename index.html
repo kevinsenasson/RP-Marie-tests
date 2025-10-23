@@ -12,6 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
@@ -90,6 +91,71 @@
       <p>© 2025 MediaStock inc.</p>
     </footer>
 
+    <!-- Offcanvas - Fiche produit -->
+    <div
+      class="offcanvas offcanvas-end offcanvas-fiche"
+      tabindex="-1"
+      id="ficheProduitOffcanvas"
+      aria-labelledby="ficheProduitLabel"
+    >
+      <div class="offcanvas-header-custom">
+        <button
+          type="button"
+          class="btn-close-custom"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <!-- En-tête avec icône et nom -->
+        <div class="fiche-header">
+          <div class="fiche-icon-wrapper">
+            <div id="ficheIcon" class="fiche-icon-circle">
+              <i class="fas fa-box fa-3x"></i>
+            </div>
+          </div>
+          <h3 id="ficheNom" class="fiche-title">Nom du matériel</h3>
+          <div id="ficheEtat" class="fiche-badges">
+            <!-- Badges injectés ici -->
+          </div>
+        </div>
+
+        <!-- Corps de la fiche -->
+        <div class="fiche-content">
+          <!-- QR Code Card -->
+          <div class="fiche-card">
+            <div class="fiche-card-header">
+              <i class="fas fa-qrcode me-2"></i>
+              <span>QR Code du matériel</span>
+            </div>
+            <div class="fiche-card-body text-center">
+              <div id="ficheQRCode" class="qr-container">
+                <!-- QR code généré ici -->
+              </div>
+              <p class="text-muted small mt-2 mb-0">
+                Scannez pour accéder aux détails
+              </p>
+            </div>
+          </div>
+
+          <!-- Historique Card -->
+          <div class="fiche-card">
+            <div class="fiche-card-header">
+              <i class="fas fa-history me-2"></i>
+              <span>Historique des prêts</span>
+            </div>
+            <div class="fiche-card-body p-0">
+              <div id="ficheHistorique">
+                <!-- Historique injecté ici -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Delete confirmation modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -138,6 +204,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="api.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
